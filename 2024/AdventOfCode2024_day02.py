@@ -16,17 +16,22 @@ for informe in INPUT:
 print('DAY 2 PUZZLE 1: %d' % (res1))
 
 # DAY 2 PUZZLE 2
+
+def is_safe(arr):
+    diffs = [arr[i+1] - arr[i] for i in range(len(arr)-1)]
+    return (all(1 <= x <= 3 for x in diffs) or all(-3 <= x <= -1 for x in diffs))
+
 res2 = 0
 for informe in INPUT:
     informe_array = [int(x) for x in informe.split()]
-    trend = 0 # será 1 si creciente y -1 si decreciente
-    previous_num = 0
-    for i, num in enumerate(informe_array):
-        if i == 0: previous_num = num
-        if i > 0:
-            dif_temp = num - previous_num
-            if dif_temp > 0
-            
-    pass
+    
+    if is_safe(informe_array):
+        res2 += 1
+    else:
+        for i in range(len(informe_array)):
+            temp_array = informe_array[:i] + informe_array[i+1:]
+            if is_safe(temp_array):
+                res2 += 1
+                break
 
 print('DAY 2 PUZZLE 2: %d' % (res2))
