@@ -1,5 +1,3 @@
-
-
 # READ DATA
 INPUT = open('./2025/01.txt', 'r')
 INPUT = [x.strip() for x in INPUT.readlines()]
@@ -47,5 +45,4 @@ for instruction in INPUT:
         
         pos = (pos - magnitude) % 100
     
-
 print('DAY 1 PUZZLE 2: %d' % (res2))
